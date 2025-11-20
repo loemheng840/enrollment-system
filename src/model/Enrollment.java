@@ -59,7 +59,7 @@ public class Enrollment {
                 ", majorName='" + majorName + '\'' +
                 ", majorDescription='" + majorDescription + '\'' +
                 ", hours=" + hours +
-                ", hours=" + enrollmentAt +
+                ", enrollmentAt=" + enrollmentAt +
                 ", year=" + year +
                 ", status=" + status +
                 '}';

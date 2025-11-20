@@ -32,17 +32,30 @@ public class TeacherDAO {
             return null;
         }
     }
-    public Teacher searchTeacherById(UUID id, Teacher teacher) throws SQLException {
-        String sql = "SELECT * FROM teacher WHERE id = ?";
+    public Teacher searchTeacherById(UUID id) throws SQLException {
+        String sql = """
+            SELECT
+                t.id,
+                t.name,
+                t.phone,
+                t.email,
+                d.department_name,
+                m.major_name,
+                m.hours
+            FROM teacher t
+            LEFT JOIN department d ON t.department_id = d.id
+            LEFT JOIN major m ON t.major_id = m.id
+            WHERE t.id = ?
+            """;
         try(PreparedStatement ps = connection.prepareStatement(sql)){
             ps.setObject(1 , id);
             ResultSet rs = ps.executeQuery();
             if(rs.next()){
-                teacher.setId(id);
+                return mapResultSetToTeacher(rs);
             }
-            return teacher;
+            return null;
         }catch (SQLException e){
-            System.out.println("[Error] SQLException: ]");
+            System.out.println(e.getMessage());
             return null;
         }
     }
@@ -68,10 +81,12 @@ public class TeacherDAO {
         return Teacher.builder()
                 .id(rs.getObject("id", UUID.class))
                 .name(rs.getString("name"))
-                .departmentId(rs.getObject("department_id", UUID.class))
-                .majorId(rs.getObject("major_id", UUID.class))
+                .departmentName(rs.getString("department_name"))
+                .majorName(rs.getString("major_name"))
+                .hours(rs.getInt("hours"))
                 .email(rs.getString("email"))
                 .phone(rs.getString("phone"))
+                .time(Teacher.Time.MORNING)
                 .build();
     }
 }

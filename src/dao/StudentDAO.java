@@ -169,25 +169,6 @@ public class StudentDAO {
             return false;
         }
     }
-
-    // Search student by ID
-    public List<Student> searchStudentByID(UUID id) {
-        String sql = "SELECT * FROM student WHERE id=?";
-        List<Student> students = new ArrayList<>();
-
-        try (PreparedStatement ps = connection.prepareStatement(sql)) {
-            ps.setObject(1, id);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                students.add(mapResultSetToStudent(rs));
-            }
-        } catch (SQLException e) {
-            System.out.println("[ERROR] Search failed: " + e.getMessage());
-        }
-
-        return students;
-    }
-
     // Helper method to map ResultSet -> Student object
     private Student mapResultSetToStudent(ResultSet rs) throws SQLException {
         return Student.builder()
