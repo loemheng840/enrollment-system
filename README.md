@@ -1,91 +1,114 @@
-# Enrollment System (CLI)
+# Enrollment Management System (CLI)
 
-A simple **Console-Based Enrollment System** built in Java that allows users to manage and track student enrollment information from the command line.
+A full-featured **Command-Line Enrollment Management System** developed in Java.  
+This project manages the complete academic workflow including **Students, Teachers, Departments, Majors, Classes, Enrollment, Payments, and Reports**.
 
-This project demonstrates core Java programming concepts such as object-oriented design, collections, file handling (if used), and console input handling. It’s ideal as a learning project for practicing Java fundamentals with a real-world inspired CLI (Command-Line Interface) application.
+It is designed as a practical learning project to apply **Object-Oriented Programming (OOP)** and system design concepts in a real-world university management scenario using a console interface.
 
-## 🧾 Features
+---
 
-- Add new student records
-- List all enrolled students
-- Search student by ID or name
-- Update student details
-- Delete student records  
-*(Customize features based on your implementation)*
+## ✨ Main Features
 
-## 📦 Technologies Used
+### 👨‍🎓 Student Management
+- Add, update, delete, and view students  
+- Assign students to departments and majors  
+- View student enrollment history
+
+### 🏫 Department & Major Management
+- Create and manage departments  
+- Create and manage majors  
+- Link majors to departments  
+- View students by department or major
+
+### 👩‍🏫 Teacher Management
+- Add, update, and view teachers  
+- Assign teachers to departments  
+- Assign teachers to classes
+
+### 📚 Class / Course Management
+- Create and manage classes  
+- Assign teachers to classes  
+- Enroll students into classes  
+- View class rosters
+
+### 💳 Payment Management
+- Record student payments  
+- Track paid, unpaid, and partial payments  
+- Calculate class and department income  
+- View payment history per student
+
+### 📊 Reporting System
+- Students by department and major  
+- Classes with enrolled student counts  
+- Teachers and their assigned classes  
+- Payment summaries by class and department  
+- System-wide statistics (total students, teachers, classes, revenue, etc.)
+
+### 🧭 Interactive CLI Menu
+- Text-based navigation menu  
+- Input validation and error handling  
+- Loop-based execution until exit
+
+---
+
+## 🛠 Technologies
 
 - Java
-- CLI / Console-based interface
-- (Optional) File storage or Database if implemented
+- Object-Oriented Programming (OOP)
+- Java Collections (List, Map, Set)
+- CLI (Console Interface)
 
-## 🚀 Getting Started
+---
 
-### Prerequisites
+## 🚀 How to Run
 
-Make sure you have:
-
-- Java JDK (11 or above)
-- An IDE (IntelliJ, Eclipse, VS Code) or terminal setup
-
-### 📥 Clone Repository
-
+### 1. Clone the Project
 ```bash
 git clone https://github.com/loemheng840/enrollment-system.git
-🏃 Run the Program
-Compile the source code
-
-javac -d bin src/*.java
-Run the program
-
+2. Compile
+javac -d bin src/**/*.java
+3. Run
 java -cp bin Main
-If your main class name or package differs, adjust the commands accordingly.
+(Replace Main with your actual main class name if different.)
 
-🧠 How It Works
-This application uses a text-based menu to prompt the user for actions such as:
-
-Add Student – Enter student details (name, ID, courses, etc.)
-
-View Students – Display all stored student records
-
-Search Student – Find a student by ID or name
-
-Update Student – Edit an existing student’s details
-
-Delete Student – Remove a student from records
-
-The program loops until the user chooses to exit.
-
-📌 Project Structure
+🧱 Example Project Structure
 enrollment-system/
 ├── src/
-│   ├── Main.java
-│   ├── Student.java
-│   ├── EnrollmentService.java
-│   └── …
+│   ├── main/
+│   │   ├── Main.java
+│   │   ├── student/
+│   │   ├── teacher/
+│   │   ├── department/
+│   │   ├── major/
+│   │   ├── course/
+│   │   ├── enrollment/
+│   │   ├── payment/
+│   │   └── report/
 ├── bin/
-├── .gitignore
 └── README.md
-(Update the folder names based on your actual structure.)
+📌 Sample Menu
+=========== Enrollment System ===========
+1. Student Management
+2. Teacher Management
+3. Department Management
+4. Major Management
+5. Class Management
+6. Enrollment
+7. Payment
+8. Reports
+0. Exit
+Choose option:
+🎯 Learning Objectives
+Practice Java OOP principles
+Design layered system architecture
+Implement real-world academic workflows
+Build a complete management system using CLI
+Prepare for upgrading to GUI or Spring Boot REST API
 
-📈 Sample Usage
-Welcome to CLI Enrollment System
-1) Add Student
-2) List Students
-3) Search Student
-4) Update Student
-5) Delete Student
-6) Exit
-Enter your choice:
-🛠 Extend the Project
-You could enhance the system with:
+🔮 Future Improvements
+Database integration (MySQL / PostgreSQL)
+Authentication (Admin, Staff, Student roles)
+REST API using Spring Boot
+Web or Desktop UI (JavaFX)
+Export reports to PDF / Excel
 
-Persisting data to a file (CSV, JSON) or database
-
-Adding authentication
-
-Supporting multiple course enrollment per student
-
-Sorting students by name or ID
-
-Exporting reports
