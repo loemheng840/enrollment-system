@@ -33,7 +33,9 @@ public class MajorController {
                 case 3:
                     updateMajor();
                     break;
-                case 4: System.exit(0);
+                case 4: 
+                    System.out.println("Exiting Major Menu...");
+                    return;
                 default:
                     System.out.println("Invalid choice");
             }

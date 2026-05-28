@@ -31,8 +31,8 @@ public class EnrollmentController {
                 case 1 -> addEnrollment();
                 case 2 -> viewEnrollment();
                 case 3 -> {
-                    System.out.println("Exiting...");
-                    System.exit(0);
+                    System.out.println("Exiting Enrollment Menu...");
+                    return;
                 }
                 default -> System.out.println("Invalid choice");
             }
